@@ -25,20 +25,24 @@ export default function Home() {
   const handleChangePass2 = (e) => {
     setPass2(e.target.value)
   }
-  
+
 
   return (
-    <div>
+    <div className="wraper">
       <h1>QRcode 暗号化</h1>
-      <label>本文：<input onChange={handleChangeText}/></label>
-      <label>パスワード：<input onChange={handleChangePass}/></label>
-      <p>暗号文：{encry({ text, pass })}</p>
-      <MakeQR text={encry({text,pass})} />
+
+      <p>暗号文　　：{encry({ text, pass })}</p>
+      <textarea placeholder="本文" onChange={handleChangeText} />
+      <textarea placeholder="パスワード" onChange={handleChangePass} />
+      
+      <MakeQR text={encry({ text, pass })} />
 
       <h1>QRcode 復号化</h1>
-      <label>暗号文：<input onChange={handleChangeText2} /></label>
-      <label>パスワード：<input onChange={handleChangePass2} /></label>
-      <p>復号文：{decry({text2,pass2})}</p>
+      
+      <p>復号文　　：{decry({ text2, pass2 })}</p>
+      <textarea placeholder="暗号文" onChange={handleChangeText2} />
+      <textarea placeholder="パスワード" onChange={handleChangePass2} />
+      
     </div>
   )
 }
