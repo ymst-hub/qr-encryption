@@ -5,6 +5,10 @@ h2, textarea {
   margin: 0;
 }
 
+h2 {
+  margin-bottom: 2px;
+}
+
 p {
   font-size: 1em;
   white-space: normal;
@@ -30,10 +34,5 @@ textarea {
 }
 
 .video {
-  width: 80%;
-}
-@media (min-width: 780px) {
-  .video {
-    width: 30%;
-  }
+  width: 90%;
 }

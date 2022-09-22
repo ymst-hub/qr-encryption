@@ -49,8 +49,8 @@ export default function Home() {
       <p>復号文　　：{decry({ text2, pass2 })}</p>
       <textarea placeholder="暗号文" onChange={handleChangeText2} value={text2} />
       <textarea placeholder="パスワード" onChange={handleChangePass2} />
+      
       <h2>画像から復号文を入力する</h2>
-      <div className="video">
         <QrReader delay={3000}
           onResult={(result, error) => {
             if (!!result) {
@@ -60,12 +60,8 @@ export default function Home() {
               console.info(error);
             }
           }}
+          className="video"
         />
-      </div>
-
-      
-
-
     </div>
   )
 }
