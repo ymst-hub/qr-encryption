@@ -30,5 +30,11 @@ textarea {
 }
 
 .video {
-  width: 30%;
+  width: 40%;
+}
+@media (min-width: 780px) {
+  .video {
+    margin: auto;
+    width: 80%;
+  }
 }
