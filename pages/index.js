@@ -2,6 +2,9 @@ import MakeQR from "../lib/qrcode";
 import { encry, decry } from "../lib/encryption";
 import React, { useState } from "react";
 
+
+import { QrReader } from 'react-qr-reader';
+
 export default function Home() {
   const [text, setText] = useState('')
   const [pass, setPass] = useState('')
@@ -25,6 +28,10 @@ export default function Home() {
   const handleChangePass2 = (e) => {
     setPass2(e.target.value)
   }
+  const handleError = (e) => {
+
+  }
+
 
 
   return (
@@ -34,15 +41,30 @@ export default function Home() {
       <p>暗号文　　：{encry({ text, pass })}</p>
       <textarea placeholder="本文" onChange={handleChangeText} />
       <textarea placeholder="パスワード" onChange={handleChangePass} />
-      
+
       <MakeQR text={encry({ text, pass })} />
 
       <h1>QRcode 復号化</h1>
-      
+
       <p>復号文　　：{decry({ text2, pass2 })}</p>
-      <textarea placeholder="暗号文" onChange={handleChangeText2} />
+      <textarea placeholder="暗号文" onChange={handleChangeText2} value={text2} />
+      <h2>画像から入力する</h2>
+      <div className="video">
+        <QrReader delay={3000}
+          onResult={(result, error) => {
+            if (!!result) {
+              setText2(result?.text);
+            }
+            if (!!error) {
+              console.info(error);
+            }
+          }}
+        />
+      </div>
+
       <textarea placeholder="パスワード" onChange={handleChangePass2} />
-      
+
+
     </div>
   )
 }

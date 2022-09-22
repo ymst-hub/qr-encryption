@@ -1,6 +1,9 @@
 h1 {
   font-size: 3em;
 }
+h2, textarea {
+  margin: 0;
+}
 
 p {
   font-size: 1em;
@@ -24,4 +27,8 @@ textarea {
 .wraper {
   width: 97%;
   margin: 0 auto;
+}
+
+.video {
+  width: 30%;
 }
