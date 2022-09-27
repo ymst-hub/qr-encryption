@@ -9,6 +9,7 @@ export default function Home() {
 
   return (
     <div className="wraper">
+      <p>このサイトはオフラインでも利用できます。</p>
       <Make />
       <Analyze />
     </div>
